@@ -1,0 +1,240 @@
+<form [formGroup]="form"
+      (ngSubmit)="onSubmit()">
+
+    <div class="container-wrap">
+        <div class="mb-4">
+            <h4>
+                Cadastro
+            </h4>
+        </div>
+
+        <div class="row">
+            <div class="col-md-4 col-sm-12 mb-3">
+                <label class="form-label"
+                       for="nome">Nome</label>
+                <input class="form-control"
+                       [class.is-invalid]="nome?.invalid && (nome?.touched || submitted)"
+                       formControlName="nome"
+                       id="nome"
+                       name="nome"
+                       placeholder="Ex: Roberto da Silva"
+                       type="text" />
+                <div *ngIf="nome?.invalid && (nome?.touched || submitted)">
+                    <span *ngIf="nome?.errors?.required"
+                          class="text-danger">Campo obrigatório</span>
+
+                </div>
+            </div>
+            <div class="col-md-4 col-sm-12 mb-3">
+                <label class="form-label"
+                       for="cpf">CPF</label>
+                <input class="form-control"
+                       [class.is-invalid]="cpf?.invalid && (cpf?.touched || submitted)"
+                       formControlName="cpf"
+                       id="cpf"
+                       name="cpf"
+                       mask="000.000.000-00"
+                       placeholder="Ex: 000.000.000-00"
+                       type="text" />
+                <div *ngIf="cpf?.invalid && (cpf?.touched || submitted)">
+                    <span *ngIf="cpf?.errors?.required"
+                          class="text-danger">Campo obrigatório</span>
+                    <span *ngIf="cpf?.errors?.cpf"
+                          class="text-danger">CPF inválido</span>
+                </div>
+            </div>
+            <div class="col-md-4 col-sm-12">
+                <label class="form-label"
+                       for="email">E-mail</label>
+                <input class="form-control"
+                       [class.is-invalid]="email?.invalid && (email?.touched || submitted)"
+                       formControlName="email"
+                       id="email"
+                       name="email"
+                       placeholder="Ex: nome@dominio.com.br"
+                       type="text" />
+                <div *ngIf="email?.invalid && (email?.touched || submitted)">
+                    <span *ngIf="email?.errors?.required"
+                          class="text-danger">Campo obrigatório</span>
+                    <span *ngIf="email?.errors?.email"
+                          class="text-danger">E-mail inválido</span>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4 col-sm-12 mb-3">
+                <label class="form-label"
+                       for="celular">Celular</label>
+                <input class="form-control"
+                       [class.is-invalid]="celular?.invalid && (celular?.touched || submitted)"
+                       formControlName="celular"
+                       id="celular"
+                       name="celular"
+                       mask="(00)00000-0000"
+                       placeholder="Ex: (00)00000-0000"
+                       type="text" />
+                <div *ngIf="celular?.invalid && (celular?.touched || submitted)">
+                    <span *ngIf="celular?.errors?.required"
+                          class="text-danger">Campo obrigatório</span>
+                    <span *ngIf="celular?.errors?.celular"
+                          class="text-danger">Celular inválido</span>
+
+                </div>
+            </div>
+            <div class="col-md-4 col-sm-12 mb-3">
+                <label class="form-label"
+                       for="cnpj">CNPJ</label>
+                <input class="form-control"
+                       [class.is-invalid]="cnpj?.invalid && (cnpj?.touched || submitted)"
+                       formControlName="cnpj"
+                       id="cnpj"
+                       name="cnpj"
+                       mask="00.000.000/0000-00"
+                       placeholder="Ex: 00.000.000/0000-00"
+                       type="text" />
+                <div *ngIf="cnpj?.invalid && (cnpj?.touched || submitted)">
+                    <span *ngIf="cnpj?.errors?.required"
+                          class="text-danger">Campo obrigatório</span>
+                    <span *ngIf="cnpj?.errors?.cnpj"
+                          class="text-danger">CNPJ inválido</span>
+                </div>
+            </div>
+            <div class="col-md-4 col-sm-12">
+                <label class="form-label"
+                       for="razaoSocial">Razão Social</label>
+                <input class="form-control"
+                       [class.is-invalid]="razaoSocial?.invalid && (razaoSocial?.touched || submitted)"
+                       formControlName="razaoSocial"
+                       id="razaoSocial"
+                       name="razaoSocial"
+                       placeholder="Ex: empresa - ME"
+                       type="text" />
+                <div *ngIf="razaoSocial?.invalid && (razaoSocial?.touched || submitted)">
+                    <span *ngIf="razaoSocial?.errors?.required"
+                          class="text-danger">Campo obrigatório</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container-wrap">
+        <div class="mb-4">
+            <h4>Endereço</h4>
+        </div>
+
+        <div class="row">
+            <div class="col-md-2 col-sm-12 mb-3">
+                <label class="form-label"
+                       for="cep">CEP</label>
+                <input class="form-control"
+                       [class.is-invalid]="cep?.invalid && (cep?.touched || submitted)"
+                       formControlName="cep"
+                       id="cep"
+                       name="cep"
+                       mask="00000-000"
+                       placeholder="Ex: 00000-000"
+                       type="text" />
+                <div *ngIf="cep?.invalid && (cep?.touched || submitted)">
+                    <span *ngIf="cep?.errors?.required"
+                          class="text-danger">Campo obrigatório</span>
+                    <span *ngIf="cep?.errors?.cep"
+                          class="text-danger">Preencha corretamente o CEP</span>
+                </div>
+            </div>
+            <div class="col-md-8 col-sm-12 mb-3">
+                <label class="form-label"
+                       for="endereco">Endereço</label>
+                <input class="form-control"
+                       [class.is-invalid]="endereco?.invalid && (endereco?.touched || submitted)"
+                       formControlName="endereco"
+                       id="endereco"
+                       name="endereco"
+                       placeholder="Ex: Rua Igarai"
+                       type="text" />
+                <div *ngIf="endereco?.invalid && (endereco?.touched || submitted)">
+                    <span *ngIf="endereco?.errors?.required"
+                          class="text-danger">Campo obrigatório</span>
+                </div>
+            </div>
+            <div class="col-md-2 col-sm-12 mb-3">
+                <label class="form-label"
+                       for="numero">Número</label>
+                <input class="form-control"
+                       (keypress)="onlynumber($event);"
+                       formControlName="numero"
+                       id="numero"
+                       name="numero"
+                       maxlength="4"
+                       placeholder="Ex: 00"
+                       type="text" />
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-12 col-sm-12 mb-3">
+                <label class="form-label"
+                       for="complemento">Complemento</label>
+                <input class="form-control"
+                       formControlName="complemento"
+                       id="complemento"
+                       name="complemento"
+                       placeholder="Ex: AP 00 - Bloco 00 - Condomínio Trevo das Flores"
+                       type="text" />
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-2 col-sm-12 mb-3">
+                <label class="form-label"
+                       for="bairro">Bairro</label>
+                <input class="form-control"
+                       [class.is-invalid]="bairro?.invalid && (bairro?.touched || submitted)"
+                       formControlName="bairro"
+                       id="bairro"
+                       name="bairro"
+                       placeholder="Ex: Vila Margarita"
+                       type="text" />
+                <div *ngIf="bairro?.invalid && (bairro?.touched || submitted)">
+                    <span *ngIf="bairro?.errors?.required"
+                          class="text-danger">Campo obrigatório</span>
+                </div>
+            </div>
+            <div class="col-md-8 col-sm-12 mb-3">
+                <label class="form-label"
+                       for="cidade">Cidade</label>
+                <input class="form-control"
+                       [class.is-invalid]="cidade?.invalid && (cidade?.touched || submitted)"
+                       formControlName="cidade"
+                       id="cidade"
+                       name="cidade"
+                       placeholder="Ex: São Paulo"
+                       type="text" />
+                <div *ngIf="cidade?.invalid && (cidade?.touched || submitted)">
+                    <span *ngIf="cidade?.errors?.required"
+                          class="text-danger">Campo obrigatório</span>
+                </div>
+            </div>
+            <div class="col-md-2 col-sm-12">
+                <label class="form-label"
+                       for="estado">Estado</label>
+                <input class="form-control"
+                       [class.is-invalid]="estado?.invalid && (estado?.touched || submitted)"
+                       formControlName="estado"
+                       id="estado"
+                       name="estado"
+                       placeholder="Ex: SP"
+                       type="text" />
+                <div *ngIf="estado?.invalid && (estado?.touched || submitted)">
+                    <span *ngIf="estado?.errors?.required"
+                          class="text-danger">Campo obrigatório</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="d-flex justify-content-end me-3 mb-5">
+        <button class="btn btn-primary ms-2"
+                type="submit">Salvar</button>
+    </div>
+
+</form>
